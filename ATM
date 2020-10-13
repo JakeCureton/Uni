@@ -20,13 +20,15 @@ def verify_pin(pin):
 
 def login():
     tries = 0
-    while tries < 4:
+    lock = 3
+    while tries < 3:
         pin = input('Please Enter Your 4 Digit Pin: ')
         if verify_pin(pin):
             print("Pin OK...")
             return True
         else:
-            print("Invalid pin!")
+            lock += -1
+            print("Invalid pin! You have %.1d attempt(s) left before your card is held." % lock)
             tries += 1
     print("Too many incorrect tries. Could not log in.")
     return False
