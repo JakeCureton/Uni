@@ -3,12 +3,13 @@ import sys
 card = 1
 account_balance = 40000
 
-#Card variables
+#card variables
 '''def ejectcard():
     print("Thank you for using this cashpoint.")
     sys.exit()
 
-def wm():
+#display screen
+def welcome_message():
     while card == False:
      print('Please insert your card to start.')'''
 
@@ -78,7 +79,7 @@ def main_menu():
         sys.exit()
 
 def start_menu():
-    print("Welcome to Jake's atm!")
+    print("Welcome to Jake's ATM.")
     if login():
         main_menu()
     print("Your card has been collected for security purposes. Please contact branch to request a new card.")
