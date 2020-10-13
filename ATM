@@ -3,9 +3,14 @@ import sys
 card = 1
 account_balance = 40000
 
-def ejectcard():
+#Card variables
+'''def ejectcard():
     print("Thank you for using this cashpoint.")
     sys.exit()
+
+def wm():
+    while card == False:
+     print('Please insert your card to start.')'''
 
 def verify_pin(pin):
     if pin == '1234':
@@ -25,10 +30,6 @@ def log_in():
             tries += 1
     print("Too many incorrect tries. Could not log in.")
     return False
-
-def wm():
-    while card == False:
-     print('Please insert your card to start.')
 
 def deposit():
     global account_balance
@@ -63,7 +64,7 @@ def printbalance():
     main_menu()
 
 def main_menu():
-    userchoice = input("\nPlease select an option: \n Deposit: D \n Withdraw: W \n Balance: B \n").upper()
+    userchoice = input("\nPlease select an option: \n Deposit: D \n Withdraw: W \n Balance: B \n Exit: E \n").upper()
     if (userchoice == "D"):
         deposit()
     elif userchoice == "W":
