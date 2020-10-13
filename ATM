@@ -18,15 +18,15 @@ def verify_pin(pin):
     else:
         return False
 
-def log_in():
+def login():
     tries = 0
     while tries < 4:
         pin = input('Please Enter Your 4 Digit Pin: ')
         if verify_pin(pin):
-            print("Pin accepted!")
+            print("Pin OK...")
             return True
         else:
-            print("Invalid pin")
+            print("Invalid pin!")
             tries += 1
     print("Too many incorrect tries. Could not log in.")
     return False
@@ -64,12 +64,12 @@ def printbalance():
     main_menu()
 
 def main_menu():
-    userchoice = input("\nPlease select an option: \n Deposit: D \n Withdraw: W \n Balance: B \n Exit: E \n").upper()
-    if (userchoice == "D"):
+    choice = input("\nPlease select an option: \n Deposit: D \n Withdraw: W \n Balance: B \n Exit: E \n").upper()
+    if (choice == "D"):
         deposit()
-    elif userchoice == "W":
+    elif choice == "W":
       withdraw()
-    elif userchoice == "B":
+    elif choice == "B":
      printbalance()
     else:
         print("Thank you for using this cashpoint.")
@@ -77,7 +77,7 @@ def main_menu():
 
 def start_menu():
     print("Welcome to Jake's atm!")
-    if log_in():
+    if login():
         main_menu()
     print("Your card has been collected for security purposes. Please contact branch to request a new card.")
 
