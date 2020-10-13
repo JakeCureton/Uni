@@ -1,9 +1,9 @@
 import sys
 
-card = 1
 account_balance = 40000
 
 #card variables
+card = 1 #change to 0 when deploying to real world
 '''def ejectcard():
     print("Thank you for using this cashpoint.")
     sys.exit()
