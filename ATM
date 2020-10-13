@@ -1,0 +1,46 @@
+import sys
+
+card = 1
+account_balance = 40000
+
+def ejectcard():
+    print("Thank you for using this cashpoint.")
+    sys.exit()
+
+def wm():
+    while card == False:
+     print('Please insert your card to start.')
+
+def deposit():
+    global account_balance
+    deposit_amount = float(input("Enter amount to deposit : \n"))
+    balance = account_balance + deposit_amount
+    print("You have just deposited £%.2f. \n Your new account balance is £%.2f.\n" %(deposit_amount, balance))
+    account_balance = balance
+
+def withdraw():
+    global account_balance
+    withdraw_amount = float(input("Enter amount to withdraw : \n"))
+    if withdraw_amount > account_balance:
+        print("You do not have enough funds. Please choose another amount. \n")
+        withdraw()
+    else:
+        balance = account_balance - withdraw_amount
+        print("You have withdrawn %.2f." %(withdraw_amount))
+        account_balance = balance
+
+def printbalance():
+    global account_balance
+    print("Your current balance : %.2f" % account_balance)
+
+while card == True:
+    userchoice = input("\nPlease select an option: \n Deposit: D \n Withdraw: W \n Balance: B \n").upper()
+    if (userchoice == "D"):
+        deposit()
+    elif userchoice == "W":
+      withdraw()
+    elif userchoice == "B":
+     printbalance()
+    else:
+        print("Thank you for using this cashpoint.")
+        sys.exit()
