@@ -30,7 +30,7 @@ def login():
             lock += -1
             print("Invalid pin! You have %.1d attempt(s) left before your card is held." % lock)
             tries += 1
-    print("Too many incorrect tries. Could not log in.")
+    print("Too many incorrect tries.")
     return False
 
 def deposit():
@@ -53,7 +53,7 @@ def withdraw():
             withdraw()
         else:
             balance = account_balance - withdraw_amount
-            print("You have withdrawn %.2f." %(withdraw_amount))
+            print("You have withdrawn £%.2f." %(withdraw_amount))
             account_balance = balance
             main_menu()
     except ValueError:
@@ -62,7 +62,7 @@ def withdraw():
 
 def printbalance():
     global account_balance
-    print("Your current balance : %.2f" % account_balance)
+    print("Your current balance : £%.2f" % account_balance)
     main_menu()
 
 def main_menu():
