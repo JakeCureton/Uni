@@ -102,5 +102,3 @@ def start_menu():
     print("Your card has been collected for security purposes. Please contact branch to request a new card.")
 
 start_menu()
-
-main_menu()
