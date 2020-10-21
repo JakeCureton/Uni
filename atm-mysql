@@ -8,35 +8,33 @@ now = datetime.now()
 time = now.strftime("%d/%m/%Y %H:%M:%S")
 
 try:
-  cnx = mysql.connector.connect(host='192.168.0.50',
-                                user='cash_machine',
-                                password='test123',
-                                database='atm',
-                                get_warnings=True,
-                                use_pure = True
-                                )
-  
-  cursor = cnx.cursor()
+    cnx = mysql.connector.connect(host = '192.168.0.50',
+                                  port=3306,
+                                  user = 'cashmachine',
+                                  password = 'test',
+                                  database = 'atm',
+                                  get_warnings = True,
+                                  use_pure = True
+                                  )
 
-  query = ("SELECT * FROM customers WHERE card_id = %s")
+    customers = cnx.cursor()
 
-  card_id: int = 4751280038571937
+    customers.execute("SELECT * FROM customers")
 
-  cursor.execute(query, (card_id))
+    fetch = customers.fetchone()
 
-  print("Hi, %".format(firstname))
+    for x in fetch:
+        print(x)
 
-  cursor.close()
-  cnx.close()
 except mysql.connector.Error as err:
-  if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-    print("Something is wrong with your user name or password")
-  elif err.errno == errorcode.ER_BAD_DB_ERROR:
-    print("Database does not exist")
-  else:
-    print(err)
+    if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+        print("Something is wrong with your user name or password")
+    elif err.errno == errorcode.ER_BAD_DB_ERROR:
+        print("Database does not exist")
+    else:
+        print(err)
 else:
-  cnx.close()
+    cnx.close()
 
 account_balance = 4000.00
 
