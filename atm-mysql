@@ -23,8 +23,12 @@ try:
 
     fetch = customers.fetchall()
 
-    for row in fetch:
+       for row in fetch:
+        global db_pin
+        global account_balance
         name = row[0]
+        db_pin = int(row[4])
+        account_balance = float(row[5])
         print ("Hi, ", name, ".")
 
 except mysql.connector.Error as err:
@@ -37,7 +41,6 @@ except mysql.connector.Error as err:
 else:
     cnx.close()
 
-account_balance = 4000.00
     card_id = 4751280038571937 #simulate card in machine - must match card_id in db
 
     customers.execute("SELECT * FROM customers WHERE card_id=%s", (card_id,))
@@ -59,8 +62,6 @@ except mysql.connector.Error as err:
         print(err)
 else:
     cnx.close()
-
-account_balance = 4000.00
 
 # card variables
 card = 1  # change to 0 when deploying to real world
