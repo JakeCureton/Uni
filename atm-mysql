@@ -8,23 +8,24 @@ now = datetime.now()
 time = now.strftime("%d/%m/%Y %H:%M:%S")
 
 try:
-    cnx = mysql.connector.connect(host = '192.168.0.50',
-                                  port=3306,
-                                  user = 'cashmachine',
+    cnx = mysql.connector.connect(host = 'localhost',
+                                  user = 'cash_machine',
                                   password = 'test',
                                   database = 'atm',
-                                  get_warnings = True,
-                                  use_pure = True
+                                  get_warnings = True
                                   )
 
     customers = cnx.cursor()
 
-    customers.execute("SELECT * FROM customers")
+    card_id = 4751280038571937 #simulate card in machine - must match card_id in db
 
-    fetch = customers.fetchone()
+    customers.execute("SELECT * FROM customers WHERE card_id=%s", (card_id,))
 
-    for x in fetch:
-        print(x)
+    fetch = customers.fetchall()
+
+    for row in fetch:
+        name = row[0]
+        print ("Hi, ", name, ".")
 
 except mysql.connector.Error as err:
     if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
