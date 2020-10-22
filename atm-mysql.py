@@ -102,7 +102,7 @@ try:
                 print("You do not have enough funds. Please choose another amount. \n")
                 withdraw()
             elif withdraw_amount + withdraw_limit > 300:
-                print("You can only withdraw £300 a day. Please choose another amount. \n")
+                print("You can only withdraw £300 a day.")
                 start_menu()
             else:
                 balance = account_balance - withdraw_amount
