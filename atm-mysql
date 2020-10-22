@@ -27,7 +27,7 @@ try:
         global db_pin
         global account_balance
         name = row[0]
-        db_pin = int(row[4])
+        db_pin = int(row[4]) #default pin from db is 1234. See customers.sql. For run use bypass! as pin
         account_balance = float(row[5])
         print ("Hi, ", name, ".")
 
