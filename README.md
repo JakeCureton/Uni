@@ -10,15 +10,15 @@ default pin is 1234 or bypass! for more money.
 
 Preferences > Project > + > search mysql-connector-python
 
-You also need a local MySQL server "https://dev.mysql.com/downloads/mysql/". 
+- You also need a local MySQL server "https://dev.mysql.com/downloads/mysql/". 
 
-Once installed, use a database tool such as HeidiSql to connect to your server with root password you setup. 
+- Once installed, use a database tool such as HeidiSql to connect to your server with root password you setup. 
 
-Download customers.sql from this git and import into your database using HeidiSql.
+- Download customers.sql from this git and import into your database using HeidiSql.
 
-Create a new user and set it priviledges for atm database.
+- Create a new user and set it priviledges for atm database.
 
-Change the variables in atm-mysql.py line 11 onwards to match your database connection and user credentials.
+- Change the variables in atm-mysql.py line 11 onwards to match your database connection and user credentials.
 
 Default pin is 1234.
 
