@@ -25,12 +25,12 @@ Default pin is 1234.
 ### SQL EVENT RESET WITHDRAW AMOUNT DAILY: 
 - Execute the bottom command with root db privileges in HeidiSQL.
 
-CREATE EVENT withdraw_reset
+`CREATE EVENT withdraw_reset
 ON SCHEDULE EVERY 1 DAY
 STARTS '2020-01-21 00:00:00.000'
 ON COMPLETION NOT PRESERVE
 ENABLE
-DO UPDATE atm.customers SET last_withdraw = '0'
+DO UPDATE atm.customers SET last_withdraw = '0'`
 
 
 ![](in-action.gif)
