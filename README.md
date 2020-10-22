@@ -28,3 +28,6 @@ STARTS '2020-01-21 00:00:00.000'
 ON COMPLETION NOT PRESERVE
 ENABLE
 DO UPDATE atm.customers SET last_withdraw = '0'
+
+
+![](in-action.gif)
