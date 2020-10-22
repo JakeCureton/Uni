@@ -3,7 +3,7 @@ A fun little cash machine experiment. Started off in terminal and then attached 
 
 ## LOCAL ONLY
 - Use ATM.py in pycharm or terminal. No dependancies needed.
-default pin is 1234 or bypass! for more money.
+Default pin is '1234' or 'bypass!' for more money. All money resets on re-run as no local db is setup.
 
 ## MySQL 
 - Use atm-mysql.py in pycharm and ensure to install package needed:
