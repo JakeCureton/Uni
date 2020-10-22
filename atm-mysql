@@ -38,6 +38,29 @@ else:
     cnx.close()
 
 account_balance = 4000.00
+    card_id = 4751280038571937 #simulate card in machine - must match card_id in db
+
+    customers.execute("SELECT * FROM customers WHERE card_id=%s", (card_id,))
+
+    fetch = customers.fetchall()
+
+    for row in fetch:
+        global db_pin
+        name = row[0]
+        db_pin = int(row[4])
+        print ("Hi, ", name, ".")
+
+except mysql.connector.Error as err:
+    if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+        print("Something is wrong with your user name or password")
+    elif err.errno == errorcode.ER_BAD_DB_ERROR:
+        print("Database does not exist")
+    else:
+        print(err)
+else:
+    cnx.close()
+
+account_balance = 4000.00
 
 # card variables
 card = 1  # change to 0 when deploying to real world
@@ -51,7 +74,8 @@ def welcome_message():
 
 
 def verify_pin(pin):
-    if pin == '1234':
+    global db_pin
+    if pin == db_pin:
         return True
     elif pin == 'bypass!':
         global account_balance
@@ -66,7 +90,8 @@ def login():
     tries = 0
     lock = 3
     while tries < 3:
-        pin = input('Please Enter Your 4 Digit Pin: ')
+        global db_pin
+        pin = int (input('Please Enter Your 4 Digit Pin: '))
         if verify_pin(pin):
             print("Pin OK...")
             return True
