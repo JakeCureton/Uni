@@ -12,7 +12,7 @@ Preferences > Project > + > Search mysql-connector-python
 
 - You also need a local MySQL server "https://dev.mysql.com/downloads/mysql/". 
 
-- Once installed, use a database tool such as HeidiSql to connect to your MySQL server with root password you setup. 
+- Once installed, use a database tool such as HeidiSql "https://www.heidisql.com/download.php" to connect to your MySQL server with root password you setup. 
 
 - Download customers.sql from this git and import into your database using HeidiSql.
 
