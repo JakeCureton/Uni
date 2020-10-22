@@ -8,7 +8,7 @@ use ATM.py in pycharm or terminal. No dependancies needed.
 default pin is 1234 or bypass! for more money.
 
 MySQL 
-use atm-mysql.py in pycharm and ensure to install the couple of packages needed.
+use atm-mysql.py in pycharm and ensure to install package needed.
 Preferences > Project > + > search mysql-connector-python
 
 You also need a local MySQL server "https://dev.mysql.com/downloads/mysql/". 
