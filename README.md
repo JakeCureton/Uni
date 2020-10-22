@@ -2,11 +2,11 @@
 A fun little cash machine experiment. Started off in terminal and then attached an rpi4 to a matrix keypad and shazam, the code continues to grow.
 
 ## LOCAL ONLY
-- Use ATM.py in pycharm or terminal. No dependancies needed.
+- Use [ATM.py](https://github.com/JakeCureton/Uni/blob/main/ATM.py) in pycharm or terminal. No dependancies needed.
 Default pin is '1234' or 'bypass!' for more money. All money resets on re-run as no local db is setup.
 
 ## MySQL 
-- Use atm-mysql.py in pycharm and ensure to install package needed:
+- Use [atm-mysql.py](https://github.com/JakeCureton/Uni/blob/main/atm-mysql.py) in pycharm and ensure to install package needed:
 
 Preferences > Project > + > Search mysql-connector-python
 
