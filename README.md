@@ -6,13 +6,13 @@ A fun little cash machine experiment. Started off in terminal and then attached 
 default pin is 1234 or bypass! for more money.
 
 ## MySQL 
-- Use atm-mysql.py in pycharm and ensure to install package needed.
+- Use atm-mysql.py in pycharm and ensure to install package needed:
 
-Preferences > Project > + > search mysql-connector-python
+Preferences > Project > + > Search mysql-connector-python
 
 - You also need a local MySQL server "https://dev.mysql.com/downloads/mysql/". 
 
-- Once installed, use a database tool such as HeidiSql to connect to your server with root password you setup. 
+- Once installed, use a database tool such as HeidiSql to connect to your MySQL server with root password you setup. 
 
 - Download customers.sql from this git and import into your database using HeidiSql.
 
