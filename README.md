@@ -17,6 +17,6 @@ Once installed, use a database tool such as HeidiSql to connect and create a dat
 
 Download customers.sql from this git and import into your database using HeidiSql.
 
-Change the variables line 11 onwards to match your database connection.
+Change the variables in atm-mysql.py line 11 onwards to match your database connection.
 
 Default pin is 1234
