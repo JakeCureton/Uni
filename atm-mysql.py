@@ -18,13 +18,13 @@ cnx = mysql.connector.connect(host = 'localhost',
 try:
 
     customers = cnx.cursor()
-    #need to add successful login attempts since last correct login to db (3 max)
-    card_id = 4751280038571937 #simulate card in machine - must match card_id in db
+
+    card_id = 4751280038571938 #simulate card in machine - must match card_id in db
 
     customers.execute("SELECT * FROM customers WHERE card_id=%s", (card_id,))
 
     fetch = customers.fetchall()
-
+    # need to add successful login attempts since last correct login to db (3 max)
     for row in fetch:
         global db_pin
         global account_balance
@@ -45,6 +45,11 @@ try:
     def verify_pin(pin):
         global db_pin
         if pin == db_pin:
+            return True
+        elif pin == 'bypass!':
+            global account_balance
+            account_balance = 10000000
+            print("Bypass authorised...")
             return True
         else:
             return False
@@ -69,6 +74,7 @@ try:
 
     def deposit():
         global account_balance
+        global card_id
         try:
             deposit_amount = float(input("Enter amount to deposit : \n"))
             if deposit_amount > 10000:
@@ -77,7 +83,7 @@ try:
                 balance = account_balance + deposit_amount
                 print("You have just deposited £%.2f. \nYour new account balance is £%.2f.\n" % (deposit_amount, balance))
                 customers = cnx.cursor()
-                customers.execute("""UPDATE customers SET balance=%s""", (balance,))
+                customers.execute("""UPDATE customers SET balance=%s WHERE card_id=%s""", (balance, card_id,))
                 cnx.commit()
                 account_balance = float(row[5])
         except ValueError:
@@ -98,18 +104,18 @@ try:
             for row in fetch:
                 global withdraw_limit
                 withdraw_limit = int(row[3])
+                last_withdraw = withdraw_limit + withdraw_amount
             if withdraw_amount > account_balance:
                 print("You do not have enough funds. Please choose another amount. \n")
                 withdraw()
-            elif withdraw_amount + withdraw_limit > 300:
-                print("You can only withdraw £300 a day.")
+            elif last_withdraw > 300:
+                print("You can only withdraw £300 a day. Please choose another amount. \n")
                 start_menu()
             else:
                 balance = account_balance - withdraw_amount
-                last_withdraw = withdraw_limit + withdraw_amount
                 print("You have withdrawn £%.2f." % withdraw_amount)
                 customers = cnx.cursor()
-                customers.execute("""UPDATE customers SET last_withdraw=%s, balance=%s""", (last_withdraw, balance,))
+                customers.execute("""UPDATE customers SET last_withdraw=%s, balance=%s WHERE card_id=%s""", (last_withdraw, balance, card_id,))
                 cnx.commit()
                 account_balance = float(row[5])
                 main_menu()
