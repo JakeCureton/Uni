@@ -14,7 +14,7 @@ Preferences > Project > + > Search mysql-connector-python
 
 - Once installed, use a database tool such as HeidiSql "https://www.heidisql.com/download.php" to connect to your MySQL server with root password you setup. 
 
-- Download [https://github.com/JakeCureton/Uni/blob/main/customers.sql](customers.sql) from this git and import into your database using HeidiSql.
+- Download [https://github.com/JakeCureton/Uni/blob/main/customers.sql] (customers.sql) from this git and import into your database using HeidiSql.
 
 - Create a new user and set it priviledges for atm database.
 
