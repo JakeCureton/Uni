@@ -10,9 +10,9 @@ Default pin is '1234' or 'bypass!' for more money. All money resets on re-run as
 
 Preferences > Project > + > Search mysql-connector-python
 
-- You also need a local MySQL server "https://dev.mysql.com/downloads/mysql/". 
+- You also need a local [MySQL server](https://dev.mysql.com/downloads/mysql/). 
 
-- Once installed, use a database tool such as HeidiSql "https://www.heidisql.com/download.php" to connect to your MySQL server with root password you setup. 
+- Once installed, use a database tool such as [HeidiSql](https://www.heidisql.com/download.php) to connect to your MySQL server with root password you setup. 
 
 - Download [customers.sql](https://github.com/JakeCureton/Uni/blob/main/customers.sql) from this git and import into your database using HeidiSql.
 
