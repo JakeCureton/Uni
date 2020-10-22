@@ -9,4 +9,5 @@ CREATE TABLE `customers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
  
 INSERT INTO `customers` VALUES ("John","Smith","4751280038571937","0","1234","500000.00");
+INSERT INTO `customers` VALUES ("Vera","Jones","4751280038571938","0","1234","2375.28");
 
