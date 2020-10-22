@@ -46,11 +46,6 @@ try:
         global db_pin
         if pin == db_pin:
             return True
-        elif pin == 'bypass!':
-            global account_balance
-            account_balance = 10000000
-            print("Bypass authorised...")
-            return True
         else:
             return False
 
