@@ -19,7 +19,7 @@ try:
 
     customers = cnx.cursor()
 
-    card_id = 4751280038571938 #simulate card in machine - must match card_id in db
+    card_id = 4751280038571937 #simulate card in machine - must match card_id in db
 
     customers.execute("SELECT * FROM customers WHERE card_id=%s", (card_id,))
 
