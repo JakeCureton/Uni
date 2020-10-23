@@ -50,19 +50,34 @@ try:
             return False
 
 
-    def login():
-        tries = 0
+        def login():
+        customers = cnx.cursor()
+        customers.execute("SELECT * FROM customers WHERE card_id=%s", (card_id,))
+
+        fetch = customers.fetchall()
         lock = 3
+        for row in fetch:
+            tries = int(row[6])
         while tries < 3:
             global db_pin
             pin = int(input('Please Enter Your 4 Digit Pin: '))
             if verify_pin(pin):
+                customers = cnx.cursor()
+                customers.execute("""UPDATE customers SET pin_tries="0" WHERE card_id=%s""", (card_id,))
+                cnx.commit()
                 print("Pin OK...")
                 return True
+            elif tries == 3:
+                return False
+                print("Thank you for using this cashpoint.")
+                sys.exit()
             else:
-                lock += -1
+                tries = tries - -1
+                lock = lock + - 1
+                customers = cnx.cursor()
+                customers.execute("""UPDATE customers SET pin_tries=%s WHERE card_id=%s""", (tries, card_id,))
+                cnx.commit()
                 print("Invalid pin! You have %.1d attempt(s) left before your card is held." % lock)
-                tries += 1
         print("Too many incorrect tries.")
         return False
 
