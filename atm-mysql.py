@@ -40,6 +40,28 @@ try:
     def welcome_message():
         while card == False:
          print('Please insert your card to start.')'''
+    
+    def change_pin():
+    global card_id
+    while True:
+        try:
+            pin1 = (input('Enter a new 4 digit pin: '))
+            if len(pin1) != 4 and not pin1.isalpha():
+                raise ValueError
+            pin2 = (input('Enter your new pin again:'))
+            if len(pin2) != 4 or not pin1 == pin2:
+                print("Numbers do not match. Try again.")
+                change_pin()
+            else:
+                customers = cnx.cursor()
+                customers.execute("""UPDATE customers SET card_pin=%s WHERE card_id=%s""", (pin1, card_id,))
+                cnx.commit()
+                print("Pin Changed.")
+                start_menu()
+        except ValueError:
+            print("Invalid pin. Please enter 4 numbers.")
+
+
 
 
     def verify_pin(pin):
@@ -147,13 +169,15 @@ try:
 
 
     def main_menu():
-        choice = input("\nPlease select an option: \n Deposit: D \n Withdraw: W \n Balance: B \n Exit: E \n").upper()
+        choice = input("\nPlease select an option: \n Deposit: D \n Withdraw: W \n Balance: B \n Pin Services: P \n Exit: E \n").upper()
         if choice == "D":
             deposit()
         elif choice == "W":
             withdraw()
         elif choice == "B":
             print_balance()
+        elif choice == "P":
+            change_pin()
         else:
             print("Thank you for using this cashpoint.")
             sys.exit()
