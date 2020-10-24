@@ -73,15 +73,16 @@ try:
 
 
         def login():
+        global db_pin
         customers = cnx.cursor()
         customers.execute("SELECT * FROM customers WHERE card_id=%s", (card_id,))
 
         fetch = customers.fetchall()
         lock = 3
         for row in fetch:
+            db_pin = int(row[4])
             tries = int(row[6])
         while tries < 3:
-            global db_pin
             pin = int(input('Please Enter Your 4 Digit Pin: '))
             if verify_pin(pin):
                 customers = cnx.cursor()
