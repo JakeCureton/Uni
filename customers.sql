@@ -5,7 +5,7 @@ CREATE TABLE `customers` (
   `card_id` varchar(20) DEFAULT NULL,
   `last_withdraw` int(3) DEFAULT 0 NULL,
   `card_pin` INT(4) DEFAULT NULL,
-  `balance` FLOAT(200) DEFAULT NULL,
+  `balance` FLOAT(10,2) DEFAULT NULL,
   `pin_tries` INT(1) DEFAULT 0 NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
  
