@@ -10,6 +10,10 @@ Default pin is '1234' or 'bypass!' for more money. All money resets on re-run as
 
 Preferences > Project > + > Search mysql-connector-python
 
+or in command prompt run: 
+
+`pip3 install mysql-connector`
+
 - You also need a local [MySQL server](https://dev.mysql.com/downloads/mysql/). 
 
 - Once installed, use a database tool such as [HeidiSql](https://www.heidisql.com/download.php) to connect to your MySQL server with root password you setup. 
@@ -23,7 +27,9 @@ Preferences > Project > + > Search mysql-connector-python
 Default pin is 1234.
 
 ### SQL EVENT RESET WITHDRAW AMOUNT DAILY: 
-- Execute the bottom command with root db privileges in HeidiSQL.
+- Execute the commands below with root db privileges in HeidiSQL.
+
+`SET GLOBAL event_scheduler = ON;`
 
 `CREATE EVENT withdraw_reset
 ON SCHEDULE EVERY 1 DAY
