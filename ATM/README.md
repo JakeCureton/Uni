@@ -2,11 +2,11 @@
 A fun little cash machine experiment. Started off in terminal and then attached an rpi4 to a matrix keypad and shazam, the code continues to grow.
 
 ## LOCAL ONLY
-- Use [ATM.py](https://github.com/JakeCureton/Uni/blob/main/ATM.py) in pycharm or terminal. No dependancies needed.
+- Use [ATM.py](https://github.com/JakeCureton/Uni/blob/main/ATM/ATM.py) in pycharm or terminal. No dependancies needed.
 Default pin is '1234' or 'bypass!' for more money. All money resets on re-run as no local db is setup.
 
 ## MySQL 
-- Use [atm-mysql.py](https://github.com/JakeCureton/Uni/blob/main/atm-mysql.py) in pycharm and ensure to install package needed:
+- Use [atm-mysql.py](https://github.com/JakeCureton/Uni/blob/main/ATM/atm-mysql.py) in pycharm and ensure to install package needed:
 
 Preferences > Project > + > Search mysql-connector-python
 
@@ -18,7 +18,7 @@ or in command prompt run:
 
 - Once installed, use a database tool such as [HeidiSql](https://www.heidisql.com/download.php) to connect to your MySQL server with root password you setup. 
 
-- Download [customers.sql](https://github.com/JakeCureton/Uni/blob/main/customers.sql) from this git and import into your server using HeidiSql.
+- Download [customers.sql](https://github.com/JakeCureton/Uni/blob/main/ATM/customers.sql) from this git and import into your server using HeidiSql.
 
 - Create a new user and set it priviledges for atm database.
 
